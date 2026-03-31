@@ -6,24 +6,391 @@
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
     <title>Baku News</title>
     <style>
-        body { font-family: 'Helvetica Neue', Arial, sans-serif; margin: 0; background: #ffffff; color: #333; }
-        header { padding: 35px 20px; text-align: center; border-bottom: 3px solid #d32f2f; margin-bottom: 30px; }
-        header h1 { margin: 0; font-size: 45px; font-weight: bold; color: #000; letter-spacing: 1px; }
-        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
-        ul { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 25px; list-style: none; padding: 0; }
-        .news-card { background: #fff; border: 1px solid #eee; border-radius: 10px; overflow: hidden; display: flex; flex-direction: column; transition: 0.3s; }
-        .news-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.08); }
-        .news-card img { width: 100%; height: 200px; object-fit: cover; border-bottom: 1px solid #f0f0f0; }
-        .text-content { padding: 20px; flex-grow: 1; }
-        .text-content a { text-decoration: none; color: #1a1a1a; font-size: 19px; font-weight: 600; line-height: 1.4; display: block; margin-bottom: 12px; }
-        .text-content a:hover { color: #d32f2f; }
-        .source-tag { color: #d32f2f; font-size: 12px; font-weight: bold; text-transform: uppercase; }
-        footer { text-align: center; padding: 40px; color: #bbb; font-size: 13px; margin-top: 50px; border-top: 1px solid #eee; }
+        body { font-family: 'Helvetica Neue', Arial, sans-serif; margin: 0; background: #fff; }
+        header { padding: 40px 20px; text-align: center; border-bottom: 2px solid #d32f2f; }
+        header h1 { margin: 0; font-size: 50px; font-weight: bold; letter-spacing: 2px; }
+        .container { max-width: 1200px; margin: 20px auto; padding: 20px; }
+        ul { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 20px; list-style: none; padding: 0; }
+        .news-card { background: #fff; border: 1px solid #eee; border-radius: 8px; overflow: hidden; display: flex; flex-direction: column; }
+        .news-card img { width: 100%; height: 180px; object-fit: cover; }
+        .text-content { padding: 15px; flex-grow: 1; }
+        .text-content a { text-decoration: none; color: #1a1a1a; font-size: 18px; font-weight: 500; line-height: 1.4; display: block; margin-bottom: 10px; }
+        .source-tag { color: #d32f2f; font-size: 13px; font-weight: bold; text-transform: uppercase; }
+        footer { text-align: center; padding: 30px; color: #999; border-top: 1px solid #eee; }
     </style>
 </head>
 <body>
-    <header><h1>BAKU NEWS</h1><p style='color:#777;'>Trend • Milli • Day.az</p></header>
-    <div class='container'><ul></ul></div>
-    <footer><p>Son Yenilənmə: 31.03.2026 20:24 | Cuppulu News</p></footer>
+    <header><h1>BAKU NEWS</h1><p>Günün Ən Son Xəbərləri</p></header>
+    <div class='container'><ul>
+                    <li class='news-card'>
+                        <img src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000' referrerpolicy='no-referrer' onerror="this.src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000'">
+                        <div class='text-content'>
+                            <a href='https://news.milli.az/karabah/' target='_blank'>Ermənistan-Azərbaycan münaqişəsi</a>
+                            <span class='source-tag'>[Milli.az]</span>
+                        </div>
+                    </li>
+                    <li class='news-card'>
+                        <img src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000' referrerpolicy='no-referrer' onerror="this.src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000'">
+                        <div class='text-content'>
+                            <a href='/karabah/' target='_blank'>Ermənistan-Azərbaycan münaqişəsi</a>
+                            <span class='source-tag'>[Milli.az]</span>
+                        </div>
+                    </li>
+                    <li class='news-card'>
+                        <img src='https://news.milli.az/media/2025/10/15/250x178/bulqur.jpg' referrerpolicy='no-referrer' onerror="this.src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000'">
+                        <div class='text-content'>
+                            <a href='https://news.milli.az/kilinariya/1322568.html' target='_blank'>Restoran üsulu bulqur plovu necə hazırlanır?</a>
+                            <span class='source-tag'>[Milli.az]</span>
+                        </div>
+                    </li>
+                    <li class='news-card'>
+                        <img src='https://news.milli.az/media/2025/10/15/250x178/bulqur.jpg' referrerpolicy='no-referrer' onerror="this.src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000'">
+                        <div class='text-content'>
+                            <a href='https://news.milli.az/kilinariya/1322568.html' target='_blank'>Restoran üsulu bulqur plovu necə hazırlanır?</a>
+                            <span class='source-tag'>[Milli.az]</span>
+                        </div>
+                    </li>
+                    <li class='news-card'>
+                        <img src='https://news.milli.az/media/2024/08/10/250x178/qoroskop_hd3.jpg' referrerpolicy='no-referrer' onerror="this.src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000'">
+                        <div class='text-content'>
+                            <a href='https://news.milli.az/horoscope/1322572.html' target='_blank'>Günün qoroskopu: Sirlərinizi bölüşərkən ehtiyatlı olun</a>
+                            <span class='source-tag'>[Milli.az]</span>
+                        </div>
+                    </li>
+                    <li class='news-card'>
+                        <img src='https://news.milli.az/media/2025/12/08/250x178/paltaryuyan_masin_2025.png_hd.jpg' referrerpolicy='no-referrer' onerror="this.src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000'">
+                        <div class='text-content'>
+                            <a href='https://news.milli.az/interest/1322565.html' target='_blank'>Paltaryumada 40 dərəcə dövrü bitdi - Mütəxəssisdən xəbərdarlıq: "Geyimləri öldürür"</a>
+                            <span class='source-tag'>[Milli.az]</span>
+                        </div>
+                    </li>
+                    <li class='news-card'>
+                        <img src='https://news.milli.az/media/2026/03/31/250x178/1322558_(3).jpg' referrerpolicy='no-referrer' onerror="this.src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000'">
+                        <div class='text-content'>
+                            <a href='https://news.milli.az/turkey/1322558.html' target='_blank'>Türkiyədə bir vaxtlar gəmiləri batırdığına inanılan yer - FOTO</a>
+                            <span class='source-tag'>[Milli.az]</span>
+                        </div>
+                    </li>
+                    <li class='news-card'>
+                        <img src='https://news.milli.az/media/2023/07/30/250x178/qocaliq.jpg' referrerpolicy='no-referrer' onerror="this.src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000'">
+                        <div class='text-content'>
+                            <a href='https://news.milli.az/health/1322547.html' target='_blank'>2 peşə sahibi Alzeymerin yanından belə keçmir - ARAŞDIRMA</a>
+                            <span class='source-tag'>[Milli.az]</span>
+                        </div>
+                    </li>
+                    <li class='news-card'>
+                        <img src='https://news.milli.az/media/2025/02/22/250x178/rafiq_ezimov_2025.jpg' referrerpolicy='no-referrer' onerror="this.src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000'">
+                        <div class='text-content'>
+                            <a href='https://news.milli.az/culture/1322542.html' target='_blank'>Mindiyimiz atlar günə 50 manat alırdı, biz 25 manat</a>
+                            <span class='source-tag'>[Milli.az]</span>
+                        </div>
+                    </li>
+                    <li class='news-card'>
+                        <img src='https://news.milli.az/media/2025/03/29/250x178/dollar_11.jpg' referrerpolicy='no-referrer' onerror="this.src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000'">
+                        <div class='text-content'>
+                            <a href='https://news.milli.az/russia/1322546.html' target='_blank'>7 yaşlı qız 88 min dolları pəncərədən atdı</a>
+                            <span class='source-tag'>[Milli.az]</span>
+                        </div>
+                    </li>
+                    <li class='news-card'>
+                        <img src='https://news.milli.az/media/2022/07/28/250x178/1659034397_1659032888_tabut.jpg' referrerpolicy='no-referrer' onerror="this.src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000'">
+                        <div class='text-content'>
+                            <a href='https://news.milli.az/showbiz/1322545.html' target='_blank'>Tanınmış musiqiçi vəfat etdi - FOTO</a>
+                            <span class='source-tag'>[Milli.az]</span>
+                        </div>
+                    </li>
+                    <li class='news-card'>
+                        <img src='https://news.milli.az/media/2025/09/18/250x178/fifa_2025.jpg' referrerpolicy='no-referrer' onerror="this.src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000'">
+                        <div class='text-content'>
+                            <a href='https://news.milli.az/sport/1322540.html' target='_blank'>Dünya çempionatında yeni qaydalar açıqlandı</a>
+                            <span class='source-tag'>[Milli.az]</span>
+                        </div>
+                    </li>
+                    <li class='news-card'>
+                        <img src='https://news.milli.az/media/2025/12/24/250x178/aynur_dadasova_2025.png' referrerpolicy='no-referrer' onerror="this.src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000'">
+                        <div class='text-content'>
+                            <a href='https://news.milli.az/showbiz/1322532.html' target='_blank'>Aynur Dadaşovanın evində toy olacaq</a>
+                            <span class='source-tag'>[Milli.az]</span>
+                        </div>
+                    </li>
+                    <li class='news-card'>
+                        <img src='https://news.milli.az/media/2025/09/15/250x178/yusif_mustafayev_2025_.jpg' referrerpolicy='no-referrer' onerror="this.src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000'">
+                        <div class='text-content'>
+                            <a href='https://news.milli.az/showbiz/1322517.html' target='_blank'>"Cavanlar mənimlə yarışa bilməz, sanki 48 yaşım var"</a>
+                            <span class='source-tag'>[Milli.az]</span>
+                        </div>
+                    </li>
+                    <li class='news-card'>
+                        <img src='https://news.milli.az/media/2026/01/10/250x178/roya_ayxan_2025.jpg' referrerpolicy='no-referrer' onerror="this.src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000'">
+                        <div class='text-content'>
+                            <a href='https://news.milli.az/showbiz/1322530.html' target='_blank'>Röyanın oğlu bu ölkədə universitetə daxil oldu</a>
+                            <span class='source-tag'>[Milli.az]</span>
+                        </div>
+                    </li>
+                    <li class='news-card'>
+                        <img src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000' referrerpolicy='no-referrer' onerror="this.src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000'">
+                        <div class='text-content'>
+                            <a href='https://az.trend.az/business/economy/' target='_blank'>Biznes və iqtisadiyyat xəbərləri</a>
+                            <span class='source-tag'>[Trend.az]</span>
+                        </div>
+                    </li>
+                    <li class='news-card'>
+                        <img src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000' referrerpolicy='no-referrer' onerror="this.src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000'">
+                        <div class='text-content'>
+                            <a href='https://az.trend.az/other/world/4169736.html' target='_blank'>Qızılın qiyməti 4700 dolları ötüb
+
+00:23 (UTC+04)
+Dünya xəbərləri</a>
+                            <span class='source-tag'>[Trend.az]</span>
+                        </div>
+                    </li>
+                    <li class='news-card'>
+                        <img src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000' referrerpolicy='no-referrer' onerror="this.src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000'">
+                        <div class='text-content'>
+                            <a href='https://az.trend.az/azerbaijan/society/4169738.html' target='_blank'>Sabunçunun bəzi ərazilərində işıq olmayacaq
+
+00:00 (UTC+04)
+Cəmiyyət</a>
+                            <span class='source-tag'>[Trend.az]</span>
+                        </div>
+                    </li>
+                    <li class='news-card'>
+                        <img src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000' referrerpolicy='no-referrer' onerror="this.src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000'">
+                        <div class='text-content'>
+                            <a href='https://az.trend.az/azerbaijan/incident/4169740.html' target='_blank'>Ağdamda bıçaqlanan qız Bakıya göndərilib
+
+31 Mart 23:42 (UTC+04)
+Hadisə</a>
+                            <span class='source-tag'>[Trend.az]</span>
+                        </div>
+                    </li>
+                    <li class='news-card'>
+                        <img src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000' referrerpolicy='no-referrer' onerror="this.src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000'">
+                        <div class='text-content'>
+                            <a href='https://az.trend.az/other/world/4169737.html' target='_blank'>İvitsa Daçiç xəstəxanadan evə buraxılıb
+
+31 Mart 23:25 (UTC+04)
+Dünya xəbərləri</a>
+                            <span class='source-tag'>[Trend.az]</span>
+                        </div>
+                    </li>
+                    <li class='news-card'>
+                        <img src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000' referrerpolicy='no-referrer' onerror="this.src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000'">
+                        <div class='text-content'>
+                            <a href='https://az.trend.az/azerbaijan/sports/4169731.html' target='_blank'>“Milan” serbiyalı hücumçu transfer edib
+
+31 Mart 22:52 (UTC+04)
+İdman</a>
+                            <span class='source-tag'>[Trend.az]</span>
+                        </div>
+                    </li>
+                    <li class='news-card'>
+                        <img src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000' referrerpolicy='no-referrer' onerror="this.src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000'">
+                        <div class='text-content'>
+                            <a href='https://az.trend.az/other/world/4169732.html' target='_blank'>Gümüşün qiyməti 75 dolları keçib
+
+31 Mart 22:26 (UTC+04)
+Dünya xəbərləri</a>
+                            <span class='source-tag'>[Trend.az]</span>
+                        </div>
+                    </li>
+                    <li class='news-card'>
+                        <img src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000' referrerpolicy='no-referrer' onerror="this.src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000'">
+                        <div class='text-content'>
+                            <a href='https://az.trend.az/azerbaijan/sports/4169733.html' target='_blank'>Azərbaycan U-21 millisi Bolqarıstanla heç-heçə edib
+
+31 Mart 22:08 (UTC+04)
+İdman</a>
+                            <span class='source-tag'>[Trend.az]</span>
+                        </div>
+                    </li>
+                    <li class='news-card'>
+                        <img src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000' referrerpolicy='no-referrer' onerror="this.src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000'">
+                        <div class='text-content'>
+                            <a href='https://az.trend.az/azerbaijan/society/4169666.html' target='_blank'>Azərbaycanda hansı vaxtlarda və harada balıq tutmaq qadağandır?
+
+31 Mart 22:00 (UTC+04)
+Cəmiyyət</a>
+                            <span class='source-tag'>[Trend.az]</span>
+                        </div>
+                    </li>
+                    <li class='news-card'>
+                        <img src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000' referrerpolicy='no-referrer' onerror="this.src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000'">
+                        <div class='text-content'>
+                            <a href='https://az.trend.az/other/world/4169730.html' target='_blank'>Tramp İranla danışıqlar planlarını açıqlamaqdan imtina edib
+
+31 Mart 21:45 (UTC+04)
+Dünya xəbərləri</a>
+                            <span class='source-tag'>[Trend.az]</span>
+                        </div>
+                    </li>
+                    <li class='news-card'>
+                        <img src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000' referrerpolicy='no-referrer' onerror="this.src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000'">
+                        <div class='text-content'>
+                            <a href='https://az.trend.az/business/4169719.html' target='_blank'>Azərbaycanın fiskal siyasəti iqtisadi artım üçün stimulları qoruyub saxlayır - ING Group
+
+31 Mart 21:28 (UTC+04)
+İqtisadiyyat</a>
+                            <span class='source-tag'>[Trend.az]</span>
+                        </div>
+                    </li>
+                    <li class='news-card'>
+                        <img src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000' referrerpolicy='no-referrer' onerror="this.src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000'">
+                        <div class='text-content'>
+                            <a href='https://az.trend.az/other/world/4169728.html' target='_blank'>İrana qarşı əməliyyatın başlamasından bəri Aİ-də qaz qiymətləri 70% artıb
+
+31 Mart 21:11 (UTC+04)
+Dünya xəbərləri</a>
+                            <span class='source-tag'>[Trend.az]</span>
+                        </div>
+                    </li>
+                    <li class='news-card'>
+                        <img src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000' referrerpolicy='no-referrer' onerror="this.src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000'">
+                        <div class='text-content'>
+                            <a href='https://az.trend.az/other/world/4169674.html' target='_blank'>Bağırsaqları iltihabdan qoruyan təbii vasitə aşkarlanıb
+
+31 Mart 20:56 (UTC+04)
+Dünya xəbərləri</a>
+                            <span class='source-tag'>[Trend.az]</span>
+                        </div>
+                    </li>
+                    <li class='news-card'>
+                        <img src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000' referrerpolicy='no-referrer' onerror="this.src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000'">
+                        <div class='text-content'>
+                            <a href='https://az.trend.az/business/4169716.html' target='_blank'>ING Azərbaycan pul siyasətinin daha da yumşaldılması üçün imkan görmür
+
+31 Mart 20:39 (UTC+04)
+İqtisadiyyat</a>
+                            <span class='source-tag'>[Trend.az]</span>
+                        </div>
+                    </li>
+                    <li class='news-card'>
+                        <img src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000' referrerpolicy='no-referrer' onerror="this.src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000'">
+                        <div class='text-content'>
+                            <a href='https://az.trend.az/business/4169597.html' target='_blank'>Finlandiya Azərbaycan iqtisadiyyatına investisiyaların həcmini artırıb
+
+31 Mart 20:20 (UTC+04)
+İqtisadiyyat</a>
+                            <span class='source-tag'>[Trend.az]</span>
+                        </div>
+                    </li>
+                    <li class='news-card'>
+                        <img src='/assets/weather_icons/bw/n220.svg' referrerpolicy='no-referrer' onerror="this.src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000'">
+                        <div class='text-content'>
+                            <a href='https://weather.day.az/' target='_blank'>+12 ℃
+
+
+Частично облачно, дождь
+Ощущается как: +12℃
+Ветер: Восточный , 2 м/с
+Влажность воздуха: 94%
+Атмосферное давление:758мм.рт.ст</a>
+                            <span class='source-tag'>[Day.az]</span>
+                        </div>
+                    </li>
+                    <li class='news-card'>
+                        <img src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000' referrerpolicy='no-referrer' onerror="this.src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000'">
+                        <div class='text-content'>
+                            <a href='https://azn.day.az/' target='_blank'>GBP 2,2434 
+RUB 2,0898 
+
+
+TRY 0,0382 
+GEL 0,6313</a>
+                            <span class='source-tag'>[Day.az]</span>
+                        </div>
+                    </li>
+                    <li class='news-card'>
+                        <img src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000' referrerpolicy='no-referrer' onerror="this.src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000'">
+                        <div class='text-content'>
+                            <a href='https://news.day.az/philharmonic/' target='_blank'>Азербайджанская Государственная Филармония</a>
+                            <span class='source-tag'>[Day.az]</span>
+                        </div>
+                    </li>
+                    <li class='news-card'>
+                        <img src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000' referrerpolicy='no-referrer' onerror="this.src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000'">
+                        <div class='text-content'>
+                            <a href='https://news.day.az/ourazerbaijan' target='_blank'>Наш Азербайджан: Вместе мы сила</a>
+                            <span class='source-tag'>[Day.az]</span>
+                        </div>
+                    </li>
+                    <li class='news-card'>
+                        <img src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000' referrerpolicy='no-referrer' onerror="this.src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000'">
+                        <div class='text-content'>
+                            <a href='https://news.day.az/ourazerbaijan' target='_blank'>Наш Азербайджан: Вместе мы сила</a>
+                            <span class='source-tag'>[Day.az]</span>
+                        </div>
+                    </li>
+                    <li class='news-card'>
+                        <img src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000' referrerpolicy='no-referrer' onerror="this.src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000'">
+                        <div class='text-content'>
+                            <a href='https://news.day.az/politics/1825169.html' target='_blank'>Обсуждены перспективы дальнейшего сотрудничества Азербайджана с ЮНЕСКО</a>
+                            <span class='source-tag'>[Day.az]</span>
+                        </div>
+                    </li>
+                    <li class='news-card'>
+                        <img src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000' referrerpolicy='no-referrer' onerror="this.src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000'">
+                        <div class='text-content'>
+                            <a href='https://news.day.az/politics/1825098.html' target='_blank'>Министерство нацобороны Турции поделилось публикацией в связи с Днем геноцида азербайджанцев</a>
+                            <span class='source-tag'>[Day.az]</span>
+                        </div>
+                    </li>
+                    <li class='news-card'>
+                        <img src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000' referrerpolicy='no-referrer' onerror="this.src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000'">
+                        <div class='text-content'>
+                            <a href='https://news.day.az/politics/1825098.html' target='_blank'>Министерство нацобороны Турции поделилось публикацией в связи с Днем геноцида азербайджанцев</a>
+                            <span class='source-tag'>[Day.az]</span>
+                        </div>
+                    </li>
+                    <li class='news-card'>
+                        <img src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000' referrerpolicy='no-referrer' onerror="this.src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000'">
+                        <div class='text-content'>
+                            <a href='https://news.day.az/politics/1825033.html' target='_blank'>Посол о динамичном сотрудничестве между Казахстаном и Азербайджаном</a>
+                            <span class='source-tag'>[Day.az]</span>
+                        </div>
+                    </li>
+                    <li class='news-card'>
+                        <img src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000' referrerpolicy='no-referrer' onerror="this.src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000'">
+                        <div class='text-content'>
+                            <a href='https://news.day.az/politics/1825021.html' target='_blank'>В Азербайджане введены в эксплуатацию новые военные объекты - ФОТО</a>
+                            <span class='source-tag'>[Day.az]</span>
+                        </div>
+                    </li>
+                    <li class='news-card'>
+                        <img src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000' referrerpolicy='no-referrer' onerror="this.src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000'">
+                        <div class='text-content'>
+                            <a href='https://news.day.az/politics/1825003.html' target='_blank'>МИД Азербайджана распространило заявление в связи с 31 марта - Днем геноцида азербайджанцев</a>
+                            <span class='source-tag'>[Day.az]</span>
+                        </div>
+                    </li>
+                    <li class='news-card'>
+                        <img src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000' referrerpolicy='no-referrer' onerror="this.src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000'">
+                        <div class='text-content'>
+                            <a href='https://news.day.az/politics/1824979.html' target='_blank'>Главы МИД Азербайджана и Ирана провели телефонный разговор</a>
+                            <span class='source-tag'>[Day.az]</span>
+                        </div>
+                    </li>
+                    <li class='news-card'>
+                        <img src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000' referrerpolicy='no-referrer' onerror="this.src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000'">
+                        <div class='text-content'>
+                            <a href='https://news.day.az/economy/1825183.html' target='_blank'>Нидерландская компания о влиянии эскалации на Ближнем Востоке на инфляцию в Азербайджане</a>
+                            <span class='source-tag'>[Day.az]</span>
+                        </div>
+                    </li>
+                    <li class='news-card'>
+                        <img src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000' referrerpolicy='no-referrer' onerror="this.src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000'">
+                        <div class='text-content'>
+                            <a href='https://news.day.az/economy/1825177.html' target='_blank'>Фискальная политика Азербайджана сохраняет стимулы для экономического роста  - ING Group</a>
+                            <span class='source-tag'>[Day.az]</span>
+                        </div>
+                    </li>
+                    <li class='news-card'>
+                        <img src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000' referrerpolicy='no-referrer' onerror="this.src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000'">
+                        <div class='text-content'>
+                            <a href='https://news.day.az/economy/1825177.html' target='_blank'>Фискальная политика Азербайджана сохраняет стимулы для экономического роста  - ING Group</a>
+                            <span class='source-tag'>[Day.az]</span>
+                        </div>
+                    </li></ul></div>
+    <footer><p>Son Yenilənmə: 31.03.2026 20:31 | Cuppulu</p></footer>
 </body>
 </html>
