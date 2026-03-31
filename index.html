@@ -4,201 +4,176 @@
 <head>
     <meta charset='UTF-8'>
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-    <title>Baku News</title>
+    <title>Baku News - Canlı</title>
     <style>
-        body { font-family: 'Segoe UI', Arial, sans-serif; margin: 0; background: #f4f4f4; color: #222; }
-        header { background: #fff; padding: 25px; text-align: center; border-bottom: 5px solid #d32f2f; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
-        h1 { margin: 0; font-size: 40px; color: #1a1a1a; letter-spacing: 2px; }
-        .container { max-width: 1100px; margin: 30px auto; padding: 0 20px; }
-        ul { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; list-style: none; padding: 0; }
-        .news-card { background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.08); transition: 0.3s; }
-        .news-card:hover { transform: translateY(-8px); box-shadow: 0 12px 25px rgba(0,0,0,0.15); }
-        .news-card img { width: 100%; height: 200px; object-fit: cover; border-bottom: 1px solid #eee; }
-        .text-content { padding: 20px; }
-        .text-content a { text-decoration: none; color: #111; font-size: 19px; font-weight: 600; line-height: 1.4; display: block; margin-bottom: 10px; }
-        .text-content a:hover { color: #d32f2f; }
-        .source { font-size: 13px; color: #d32f2f; font-weight: bold; text-transform: uppercase; }
-        footer { text-align: center; padding: 40px; background: #fff; margin-top: 50px; border-top: 1px solid #ddd; color: #777; }
+        body { font-family: 'Segoe UI', sans-serif; margin: 0; background: #fff; color: #1a1a1a; }
+        header { padding: 40px 20px; text-align: center; border-bottom: 5px solid #000; }
+        header h1 { font-size: 45px; margin: 0; text-transform: uppercase; font-weight: 900; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 30px; }
+        ul { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 30px; list-style: none; padding: 0; }
+        .news-card { border: 1px solid #eee; transition: 0.3s; background: #fff; }
+        .news-card:hover { box-shadow: 0 10px 20px rgba(0,0,0,0.1); transform: translateY(-5px); }
+        .img-box { width: 100%; height: 210px; overflow: hidden; background: #f9f9f9; }
+        .img-box img { width: 100%; height: 100%; object-fit: cover; }
+        .text-box { padding: 20px; }
+        .badge { background: #d32f2f; color: #fff; padding: 3px 8px; font-size: 11px; font-weight: bold; text-transform: uppercase; margin-bottom: 10px; display: inline-block; }
+        .text-box a { text-decoration: none; color: #000; font-size: 19px; font-weight: 700; line-height: 1.3; display: block; }
+        footer { text-align: center; padding: 40px; background: #f4f4f4; margin-top: 50px; font-size: 14px; color: #666; }
     </style>
 </head>
 <body>
-    <header><h1>BAKU NEWS</h1><p>Günün Ən Son Xəbərləri</p></header>
-    <div class='container'><ul>
-                        <li class='news-card'>
+    <header><h1>BAKU NEWS</h1><p>Oxu.az • Baku.ws • Qafqazinfo</p></header>
+    <div class='container'><ul><li class='news-card'>
                             <img src='https://images.unsplash.com/photo-1585007600263-ad12200a09a5?q=80&w=1000' alt='img'>
                             <div class='text-content'>
                                 <a href='https://qafqazinfo.az/news/detail/facievi-sekilde-olen-klub-prezidentinin-qardasi-14-gundur-itkin-dusub-503754' target='_blank'>Faciəvi şəkildə ölən klub prezidentinin qardaşı 14 gündür itkin düşüb</a>
                                 <span class='source'>[Qafqazinfo]</span>
                             </div>
-                        </li>
-                        <li class='news-card'>
+                        </li><li class='news-card'>
                             <img src='https://images.unsplash.com/photo-1585007600263-ad12200a09a5?q=80&w=1000' alt='img'>
                             <div class='text-content'>
                                 <a href='https://qafqazinfo.az/news/detail/olumuzu-ziyaret-ede-bilmirik-lotka-getirek-video-503750' target='_blank'>“Ölümüzü ziyarət edə bilmirik, “lotka” gətirək?”  - Video</a>
                                 <span class='source'>[Qafqazinfo]</span>
                             </div>
-                        </li>
-                        <li class='news-card'>
+                        </li><li class='news-card'>
                             <img src='https://images.unsplash.com/photo-1585007600263-ad12200a09a5?q=80&w=1000' alt='img'>
                             <div class='text-content'>
                                 <a href='https://qafqazinfo.az/news/detail/melumat-lovhesinde-1-mertebe-yazilmisdi-indi-3-cunu-tikirler-fotolar-503733' target='_blank'>“Məlumat lövhəsində 1 mərtəbə yazılmışdı, indi 3-cünü tikirlər”  - Fotolar</a>
                                 <span class='source'>[Qafqazinfo]</span>
                             </div>
-                        </li>
-                        <li class='news-card'>
+                        </li><li class='news-card'>
                             <img src='https://images.unsplash.com/photo-1585007600263-ad12200a09a5?q=80&w=1000' alt='img'>
                             <div class='text-content'>
                                 <a href='https://qafqazinfo.az/news/detail/icbari-tibbi-sigorta-agentliyi-nazirliye-verildi-ne-deyisecek-503720' target='_blank'>İcbari Tibbi Sığorta Agentliyi nazirliyə verildi  - Nə dəyişəcək?</a>
                                 <span class='source'>[Qafqazinfo]</span>
                             </div>
-                        </li>
-                        <li class='news-card'>
+                        </li><li class='news-card'>
                             <img src='https://images.unsplash.com/photo-1585007600263-ad12200a09a5?q=80&w=1000' alt='img'>
                             <div class='text-content'>
                                 <a href='https://qafqazinfo.az/news/detail/evi-su-altinda-qalan-bezi-sakinler-hotellere-yerlesdirilib-fotolar-503723' target='_blank'>Evi su altında qalan bəzi sakinlər hotellərə yerləşdirilib  - Fotolar</a>
                                 <span class='source'>[Qafqazinfo]</span>
                             </div>
-                        </li>
-                        <li class='news-card'>
+                        </li><li class='news-card'>
                             <img src='https://images.unsplash.com/photo-1585007600263-ad12200a09a5?q=80&w=1000' alt='img'>
                             <div class='text-content'>
                                 <a href='https://qafqazinfo.az/news/detail/mayda-da-2-bayrami-bir-gunde-qeyd-edeceyik-14-gun-is-olmayacaq-503710' target='_blank'>Mayda da 2 bayramı bir gündə qeyd edəcəyik  - 14 gün iş olmayacaq</a>
                                 <span class='source'>[Qafqazinfo]</span>
                             </div>
-                        </li>
-                        <li class='news-card'>
+                        </li><li class='news-card'>
                             <img src='https://images.unsplash.com/photo-1585007600263-ad12200a09a5?q=80&w=1000' alt='img'>
                             <div class='text-content'>
                                 <a href='https://qafqazinfo.az/news/detail/26-yasli-oglan-ahil-qadina-tecavuz-edib-cinayet-isi-acildi-503698' target='_blank'>26 yaşlı oğlan ahıl qadına təcavüz edib?  - Cinayət işi açıldı</a>
                                 <span class='source'>[Qafqazinfo]</span>
                             </div>
-                        </li>
-                        <li class='news-card'>
+                        </li><li class='news-card'>
                             <img src='https://images.unsplash.com/photo-1585007600263-ad12200a09a5?q=80&w=1000' alt='img'>
                             <div class='text-content'>
                                 <a href='https://qafqazinfo.az/news/detail/yeni-yaradilan-agentliye-direktor-teyin-olundu-503695' target='_blank'>Yeni yaradılan agentliyə  - Direktor təyin olundu</a>
                                 <span class='source'>[Qafqazinfo]</span>
                             </div>
-                        </li>
-                        <li class='news-card'>
+                        </li><li class='news-card'>
                             <img src='https://images.unsplash.com/photo-1585007600263-ad12200a09a5?q=80&w=1000' alt='img'>
                             <div class='text-content'>
                                 <a href='https://qafqazinfo.az/news/detail/bu-sexslerin-aile-uzvlerine-prezident-teqaudu-verilecek-503694' target='_blank'>Bu şəxslərin ailə üzvlərinə  - Prezident təqaüdü veriləcək</a>
                                 <span class='source'>[Qafqazinfo]</span>
                             </div>
-                        </li>
-                        <li class='news-card'>
+                        </li><li class='news-card'>
                             <img src='https://images.unsplash.com/photo-1585007600263-ad12200a09a5?q=80&w=1000' alt='img'>
                             <div class='text-content'>
                                 <a href='https://qafqazinfo.az/news/detail/nazirlik-beraet-alan-sexse-tezminat-odemek-istemir-503687' target='_blank'>Nazirlik bəraət alan şəxsə təzminat ödəmək istəmir</a>
                                 <span class='source'>[Qafqazinfo]</span>
                             </div>
-                        </li>
-                        <li class='news-card'>
+                        </li><li class='news-card'>
                             <img src='https://images.unsplash.com/photo-1585007600263-ad12200a09a5?q=80&w=1000' alt='img'>
                             <div class='text-content'>
                                 <a href='https://qafqazinfo.az/news/detail/msk-sedrinin-eks-gelinine-verilecek-300-minlik-emlakin-siyahisi-503753' target='_blank'>MSK sədrinin eks-gəlininə veriləcək 300 minlik əmlakın  - Siyahısı</a>
                                 <span class='source'>[Qafqazinfo]</span>
                             </div>
-                        </li>
-                        <li class='news-card'>
+                        </li><li class='news-card'>
                             <img src='https://images.unsplash.com/photo-1585007600263-ad12200a09a5?q=80&w=1000' alt='img'>
                             <div class='text-content'>
                                 <a href='https://qafqazinfo.az/news/detail/vasinqtonun-sulh-planina-cavab-vermemisik-503756' target='_blank'>“Vaşinqtonun sülh planına cavab verməmişik”</a>
                                 <span class='source'>[Qafqazinfo]</span>
                             </div>
-                        </li>
-                        <li class='news-card'>
+                        </li><li class='news-card'>
                             <img src='https://images.unsplash.com/photo-1585007600263-ad12200a09a5?q=80&w=1000' alt='img'>
                             <div class='text-content'>
                                 <a href='https://qafqazinfo.bax.tv/embed/221117.html?utm_source=playerden&utm_medium=paylasim&utm_campaign=idman-xeberleri' target='_blank'>“Ata, 2000-ci illərdə necə idin?”  - Video</a>
                                 <span class='source'>[Qafqazinfo]</span>
                             </div>
-                        </li>
-                        <li class='news-card'>
+                        </li><li class='news-card'>
                             <img src='https://images.unsplash.com/photo-1585007600263-ad12200a09a5?q=80&w=1000' alt='img'>
                             <div class='text-content'>
                                 <a href='https://qafqazinfo.bax.tv/embed/221112.html?utm_source=playerden&utm_medium=paylasim&utm_campaign=sosial-xeberler' target='_blank'>Türkiyədə 20 milyardlıq dələduzluq şəbəkəsi belə çökdürüldü  - Video</a>
                                 <span class='source'>[Qafqazinfo]</span>
                             </div>
-                        </li>
-                        <li class='news-card'>
+                        </li><li class='news-card'>
                             <img src='https://images.unsplash.com/photo-1585007600263-ad12200a09a5?q=80&w=1000' alt='img'>
                             <div class='text-content'>
                                 <a href='https://qafqazinfo.bax.tv/embed/221108.html?utm_source=playerden&utm_medium=paylasim&utm_campaign=hadise-ve-olaylar' target='_blank'>Yağışlı havada Bakıda yük maşını belə aşıb  - Video</a>
                                 <span class='source'>[Qafqazinfo]</span>
                             </div>
-                        </li>
-                        <li class='news-card'>
+                        </li><li class='news-card'>
                             <img src='https://images.unsplash.com/photo-1585007600263-ad12200a09a5?q=80&w=1000' alt='img'>
                             <div class='text-content'>
                                 <a href='https://qafqazinfo.az/news/detail/facievi-sekilde-olen-klub-prezidentinin-qardasi-14-gundur-itkin-dusub-503754' target='_blank'>Faciəvi şəkildə ölən klub prezidentinin qardaşı 14 gündür itkin düşüb</a>
                                 <span class='source'>[Qafqazinfo]</span>
                             </div>
-                        </li>
-                        <li class='news-card'>
+                        </li><li class='news-card'>
                             <img src='https://images.unsplash.com/photo-1585007600263-ad12200a09a5?q=80&w=1000' alt='img'>
                             <div class='text-content'>
                                 <a href='https://qafqazinfo.az/news/detail/paytaxtin-bezi-erazilerinde-isiq-olmayacaq-503752' target='_blank'>Paytaxtın bəzi ərazilərində işıq olmayacaq</a>
                                 <span class='source'>[Qafqazinfo]</span>
                             </div>
-                        </li>
-                        <li class='news-card'>
+                        </li><li class='news-card'>
                             <img src='https://images.unsplash.com/photo-1585007600263-ad12200a09a5?q=80&w=1000' alt='img'>
                             <div class='text-content'>
                                 <a href='https://qafqazinfo.az/news/detail/zaqatalada-masinlar-toqqusdu-sehid-atasi-yaralandi-503751' target='_blank'>Zaqatalada maşınlar toqquşdu  - Şəhid atası yaralandı</a>
                                 <span class='source'>[Qafqazinfo]</span>
                             </div>
-                        </li>
-                        <li class='news-card'>
+                        </li><li class='news-card'>
                             <img src='https://images.unsplash.com/photo-1585007600263-ad12200a09a5?q=80&w=1000' alt='img'>
                             <div class='text-content'>
                                 <a href='https://qafqazinfo.az/news/detail/olumuzu-ziyaret-ede-bilmirik-lotka-getirek-video-503750' target='_blank'>“Ölümüzü ziyarət edə bilmirik, “lotka” gətirək?”  - Video</a>
                                 <span class='source'>[Qafqazinfo]</span>
                             </div>
-                        </li>
-                        <li class='news-card'>
+                        </li><li class='news-card'>
                             <img src='https://images.unsplash.com/photo-1585007600263-ad12200a09a5?q=80&w=1000' alt='img'>
                             <div class='text-content'>
                                 <a href='https://qafqazinfo.az/news/detail/hakan-fidan-hemas-numayende-heyeti-ile-gorusdu-503747' target='_blank'>Hakan Fidan HƏMAS nümayəndə heyəti ilə görüşdü</a>
                                 <span class='source'>[Qafqazinfo]</span>
                             </div>
-                        </li>
-                        <li class='news-card'>
+                        </li><li class='news-card'>
                             <img src='https://images.unsplash.com/photo-1585007600263-ad12200a09a5?q=80&w=1000' alt='img'>
                             <div class='text-content'>
                                 <a href='https://qafqazinfo.az/news/detail/msk-sedrinin-eks-gelinine-verilecek-300-minlik-emlakin-siyahisi-503753' target='_blank'>MSK sədrinin eks-gəlininə veriləcək 300 minlik əmlakın  - Siyahısı</a>
                                 <span class='source'>[Qafqazinfo]</span>
                             </div>
-                        </li>
-                        <li class='news-card'>
+                        </li><li class='news-card'>
                             <img src='https://images.unsplash.com/photo-1585007600263-ad12200a09a5?q=80&w=1000' alt='img'>
                             <div class='text-content'>
                                 <a href='https://qafqazinfo.az/news/detail/nazim-beydemirlinin-xanimi-prezidente-muraciet-etdi-503693' target='_blank'>Nazim Bəydəmirlinin xanımı Prezidentə müraciət etdi</a>
                                 <span class='source'>[Qafqazinfo]</span>
                             </div>
-                        </li>
-                        <li class='news-card'>
+                        </li><li class='news-card'>
                             <img src='https://images.unsplash.com/photo-1585007600263-ad12200a09a5?q=80&w=1000' alt='img'>
                             <div class='text-content'>
                                 <a href='https://qafqazinfo.az/news/detail/icbari-tibbi-sigorta-agentliyi-nazirliye-verildi-ne-deyisecek-503720' target='_blank'>İcbari Tibbi Sığorta Agentliyi nazirliyə verildi  - Nə dəyişəcək?</a>
                                 <span class='source'>[Qafqazinfo]</span>
                             </div>
-                        </li>
-                        <li class='news-card'>
+                        </li><li class='news-card'>
                             <img src='https://images.unsplash.com/photo-1585007600263-ad12200a09a5?q=80&w=1000' alt='img'>
                             <div class='text-content'>
                                 <a href='https://qafqazinfo.az/news/detail/yeni-yaradilan-agentliye-direktor-teyin-olundu-503695' target='_blank'>Yeni yaradılan agentliyə  - Direktor təyin olundu</a>
                                 <span class='source'>[Qafqazinfo]</span>
                             </div>
-                        </li>
-                        <li class='news-card'>
+                        </li><li class='news-card'>
                             <img src='https://images.unsplash.com/photo-1585007600263-ad12200a09a5?q=80&w=1000' alt='img'>
                             <div class='text-content'>
                                 <a href='https://qafqazinfo.az/news/detail/bu-sexslerin-aile-uzvlerine-prezident-teqaudu-verilecek-503694' target='_blank'>Bu şəxslərin ailə üzvlərinə  - Prezident təqaüdü veriləcək</a>
                                 <span class='source'>[Qafqazinfo]</span>
                             </div>
                         </li></ul></div>
-    <footer><p>Son Yenilənmə: 31.03.2026 20:01 | Cuppulu tərəfindən</p></footer>
+    <footer><p>Son Yenilənmə: 31.03.2026 20:07 | Cuppulu News</p></footer>
 </body>
 </html>
