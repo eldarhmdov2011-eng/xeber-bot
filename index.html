@@ -4,26 +4,319 @@
 <head>
     <meta charset='UTF-8'>
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-    <title>Baku News - Canlı</title>
+    <title>Baku News</title>
     <style>
-        body { font-family: 'Segoe UI', sans-serif; margin: 0; background: #fff; color: #1a1a1a; }
-        header { padding: 40px 20px; text-align: center; border-bottom: 5px solid #000; }
-        header h1 { font-size: 45px; margin: 0; text-transform: uppercase; font-weight: 900; }
-        .container { max-width: 1200px; margin: 0 auto; padding: 30px; }
-        ul { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 30px; list-style: none; padding: 0; }
-        .news-card { border: 1px solid #eee; transition: 0.3s; background: #fff; }
-        .news-card:hover { box-shadow: 0 10px 20px rgba(0,0,0,0.1); transform: translateY(-5px); }
-        .img-box { width: 100%; height: 210px; overflow: hidden; background: #f9f9f9; }
-        .img-box img { width: 100%; height: 100%; object-fit: cover; }
-        .text-box { padding: 20px; }
-        .badge { background: #d32f2f; color: #fff; padding: 3px 8px; font-size: 11px; font-weight: bold; text-transform: uppercase; margin-bottom: 10px; display: inline-block; }
-        .text-box a { text-decoration: none; color: #000; font-size: 19px; font-weight: 700; line-height: 1.3; display: block; }
-        footer { text-align: center; padding: 40px; background: #f4f4f4; margin-top: 50px; font-size: 14px; color: #666; }
+        body { font-family: 'Helvetica Neue', Arial, sans-serif; margin: 0; background: #ffffff; color: #333; }
+        header { padding: 40px 20px; text-align: center; border-bottom: 2px solid #d32f2f; margin-bottom: 20px; }
+        header h1 { margin: 0; font-size: 50px; font-weight: bold; color: #000; letter-spacing: 2px; }
+        header p { color: #666; margin-top: 10px; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+        ul { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 20px; list-style: none; padding: 0; }
+        .news-card { background: #fff; border: 1px solid #eee; border-radius: 8px; overflow: hidden; display: flex; flex-direction: column; transition: 0.2s; }
+        .news-card:hover { box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        .news-card img { width: 100%; height: 180px; object-fit: cover; border-bottom: 1px solid #f9f9f9; }
+        .text-content { padding: 15px; flex-grow: 1; }
+        .text-content a { text-decoration: none; color: #1a1a1a; font-size: 18px; font-weight: 500; line-height: 1.4; display: block; margin-bottom: 10px; }
+        .text-content a:hover { text-decoration: underline; }
+        .source-tag { color: #d32f2f; font-size: 13px; font-weight: bold; text-transform: uppercase; }
+        footer { text-align: center; padding: 30px; color: #999; font-size: 12px; margin-top: 40px; border-top: 1px solid #eee; }
     </style>
 </head>
 <body>
-    <header><h1>BAKU NEWS</h1><p>Oxu.az • Baku.ws • Qafqazinfo</p></header>
-    <div class='container'><ul><li class='news-card'>
+    <header>
+        <h1>BAKU NEWS</h1>
+        <p>Günün Ən Son Xəbərləri</p>
+    </header>
+    <div class='container'>
+        <ul>
+            
+                    <li class='news-card'>
+                        <img src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000' referrerpolicy='no-referrer' loading='lazy' onerror="this.src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000'">
+                        <div class='text-content'>
+                            <a href='https://az.trend.az/business/economy/' target='_blank'>Biznes və iqtisadiyyat xəbərləri</a>
+                            <span class='source-tag'>[Trend.az]</span>
+                        </div>
+                    </li>
+                    <li class='news-card'>
+                        <img src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000' referrerpolicy='no-referrer' loading='lazy' onerror="this.src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000'">
+                        <div class='text-content'>
+                            <a href='https://news.milli.az/society/1322571.html' target='_blank'>Onlarla avtomobilə ziyan dəyib - Zərəri kim ödəməlidir? - VİDEO</a>
+                            <span class='source-tag'>[Milli.az]</span>
+                        </div>
+                    </li>
+                    <li class='news-card'>
+                        <img src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000' referrerpolicy='no-referrer' loading='lazy' onerror="this.src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000'">
+                        <div class='text-content'>
+                            <a href='https://news.milli.az/society/1322571.html' target='_blank'>Onlarla avtomobilə ziyan dəyib - Zərəri kim ödəməlidir? - VİDEO</a>
+                            <span class='source-tag'>[Milli.az]</span>
+                        </div>
+                    </li>
+                    <li class='news-card'>
+                        <img src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000' referrerpolicy='no-referrer' loading='lazy' onerror="this.src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000'">
+                        <div class='text-content'>
+                            <a href='https://news.milli.az/iran/1322560.html' target='_blank'>Vəziyyət yalnız bu halda normallaşa bilər - Pezeşkian</a>
+                            <span class='source-tag'>[Milli.az]</span>
+                        </div>
+                    </li>
+                    <li class='news-card'>
+                        <img src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000' referrerpolicy='no-referrer' loading='lazy' onerror="this.src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000'">
+                        <div class='text-content'>
+                            <a href='https://news.milli.az/society/1322559.html' target='_blank'>Məzahir Pənahovun oğlunun keçmiş həyat yoldaşına qaytaracağı əmlak məlum olub - SİYAHI</a>
+                            <span class='source-tag'>[Milli.az]</span>
+                        </div>
+                    </li>
+                    <li class='news-card'>
+                        <img src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000' referrerpolicy='no-referrer' loading='lazy' onerror="this.src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000'">
+                        <div class='text-content'>
+                            <a href='https://news.milli.az/world/1322556.html' target='_blank'>Avropanın mərkəzində evlər 2 manata satılır: Həm dəniz, həm dağ mənzərəli</a>
+                            <span class='source-tag'>[Milli.az]</span>
+                        </div>
+                    </li>
+                    <li class='news-card'>
+                        <img src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000' referrerpolicy='no-referrer' loading='lazy' onerror="this.src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000'">
+                        <div class='text-content'>
+                            <a href='https://news.milli.az/society/1322552.html' target='_blank'>Müəllimlərin məzuniyyət pulu necə hesablanır? – detallar</a>
+                            <span class='source-tag'>[Milli.az]</span>
+                        </div>
+                    </li>
+                    <li class='news-card'>
+                        <img src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000' referrerpolicy='no-referrer' loading='lazy' onerror="this.src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000'">
+                        <div class='text-content'>
+                            <a href='https://news.milli.az/society/1322551.html' target='_blank'>Tanınmış şair vəfat etdi - FOTO</a>
+                            <span class='source-tag'>[Milli.az]</span>
+                        </div>
+                    </li>
+                    <li class='news-card'>
+                        <img src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000' referrerpolicy='no-referrer' loading='lazy' onerror="this.src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000'">
+                        <div class='text-content'>
+                            <a href='https://news.milli.az/incedent/1322544.html' target='_blank'>Bakıda partlayış - xəsarət alan var - VİDEO</a>
+                            <span class='source-tag'>[Milli.az]</span>
+                        </div>
+                    </li>
+                    <li class='news-card'>
+                        <img src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000' referrerpolicy='no-referrer' loading='lazy' onerror="this.src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000'">
+                        <div class='text-content'>
+                            <a href='https://news.milli.az/society/1322531.html' target='_blank'>İcbari Tibbi Sığorta Agentliyi nazirliyə verildi - Xəstəxanalar üçün nə dəyişir?</a>
+                            <span class='source-tag'>[Milli.az]</span>
+                        </div>
+                    </li>
+                    <li class='news-card'>
+                        <img src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000' referrerpolicy='no-referrer' loading='lazy' onerror="this.src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000'">
+                        <div class='text-content'>
+                            <a href='https://news.milli.az/society/1322484.html' target='_blank'>Mobil operatorların “endirim tələsi” - Ucuz tarif sonradan baha başa gələ bilər</a>
+                            <span class='source-tag'>[Milli.az]</span>
+                        </div>
+                    </li>
+                    <li class='news-card'>
+                        <img src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000' referrerpolicy='no-referrer' loading='lazy' onerror="this.src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000'">
+                        <div class='text-content'>
+                            <a href='https://news.milli.az/society/1322513.html' target='_blank'>Yağışlara görə bahalaşma ola BİLƏR</a>
+                            <span class='source-tag'>[Milli.az]</span>
+                        </div>
+                    </li>
+                    <li class='news-card'>
+                        <img src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000' referrerpolicy='no-referrer' loading='lazy' onerror="this.src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000'">
+                        <div class='text-content'>
+                            <a href='https://news.milli.az/society/1322521.html' target='_blank'>Bu tarixdə qısaldılmış iş günü OLACAQ</a>
+                            <span class='source-tag'>[Milli.az]</span>
+                        </div>
+                    </li>
+                    <li class='news-card'>
+                        <img src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000' referrerpolicy='no-referrer' loading='lazy' onerror="this.src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000'">
+                        <div class='text-content'>
+                            <a href='https://news.milli.az/society/1322510.html' target='_blank'>Avtobusla rayonlara səfər edənlər sığorta olunacaq - AÇIQLAMA</a>
+                            <span class='source-tag'>[Milli.az]</span>
+                        </div>
+                    </li>
+                    <li class='news-card'>
+                        <img src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000' referrerpolicy='no-referrer' loading='lazy' onerror="this.src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000'">
+                        <div class='text-content'>
+                            <a href='https://news.milli.az/incedent/1322514.html' target='_blank'>Həlakından bir ay əvvəl - Şəhid pilotumuzun ürəkdağlayan FOTOsu</a>
+                            <span class='source-tag'>[Milli.az]</span>
+                        </div>
+                    </li>
+                    <li class='news-card'>
+                        <img src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000' referrerpolicy='no-referrer' loading='lazy' onerror="this.src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000'">
+                        <div class='text-content'>
+                            <a href='https://news.milli.az/society/1322511.html' target='_blank'>Valideynlərə vacib XƏBƏR: I sinifə qəbulda yeni QAYDA</a>
+                            <span class='source-tag'>[Milli.az]</span>
+                        </div>
+                    </li>
+                    <li class='news-card'>
+                        <img src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000' referrerpolicy='no-referrer' loading='lazy' onerror="this.src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000'">
+                        <div class='text-content'>
+                            <a href='https://news.milli.az/incedent/1322499.html' target='_blank'>Saatlıda ekologiya qəsdən məhv edilir? - İDDİA</a>
+                            <span class='source-tag'>[Milli.az]</span>
+                        </div>
+                    </li>
+                    <li class='news-card'>
+                        <img src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000' referrerpolicy='no-referrer' loading='lazy' onerror="this.src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000'">
+                        <div class='text-content'>
+                            <a href='https://news.milli.az/society/1322501.html' target='_blank'>Azərbaycanda xarici media üçün yeni TƏLƏB - 3 günə...</a>
+                            <span class='source-tag'>[Milli.az]</span>
+                        </div>
+                    </li>
+                    <li class='news-card'>
+                        <img src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000' referrerpolicy='no-referrer' loading='lazy' onerror="this.src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000'">
+                        <div class='text-content'>
+                            <a href='https://news.milli.az/society/1322496.html' target='_blank'>Sabahdan bunu edənlər CƏRİMƏLƏNƏCƏK</a>
+                            <span class='source-tag'>[Milli.az]</span>
+                        </div>
+                    </li>
+                    <li class='news-card'>
+                        <img src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000' referrerpolicy='no-referrer' loading='lazy' onerror="this.src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000'">
+                        <div class='text-content'>
+                            <a href='https://news.milli.az/incedent/1322470.html' target='_blank'>Güclü yağışların vurduğu zərəri kim ÖDƏYƏCƏK?</a>
+                            <span class='source-tag'>[Milli.az]</span>
+                        </div>
+                    </li>
+                    <li class='news-card'>
+                        <img src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000' referrerpolicy='no-referrer' loading='lazy' onerror="this.src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000'">
+                        <div class='text-content'>
+                            <a href='https://news.milli.az/weather/1322486.html' target='_blank'>Soyuqlar bitdi, istilər başlayır - PROQNOZ</a>
+                            <span class='source-tag'>[Milli.az]</span>
+                        </div>
+                    </li>
+                    <li class='news-card'>
+                        <img src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000' referrerpolicy='no-referrer' loading='lazy' onerror="this.src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000'">
+                        <div class='text-content'>
+                            <a href='https://news.day.az/politics/1825098.html' target='_blank'>Министерство нацобороны Турции поделилось публикацией в связи с Днем геноцида азербайджанцев</a>
+                            <span class='source-tag'>[Day.az]</span>
+                        </div>
+                    </li>
+                    <li class='news-card'>
+                        <img src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000' referrerpolicy='no-referrer' loading='lazy' onerror="this.src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000'">
+                        <div class='text-content'>
+                            <a href='https://news.day.az/politics/1825033.html' target='_blank'>Посол о динамичном сотрудничестве между Казахстаном и Азербайджаном</a>
+                            <span class='source-tag'>[Day.az]</span>
+                        </div>
+                    </li>
+                    <li class='news-card'>
+                        <img src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000' referrerpolicy='no-referrer' loading='lazy' onerror="this.src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000'">
+                        <div class='text-content'>
+                            <a href='https://news.day.az/politics/1825021.html' target='_blank'>В Азербайджане введены в эксплуатацию новые военные объекты - ФОТО</a>
+                            <span class='source-tag'>[Day.az]</span>
+                        </div>
+                    </li>
+                    <li class='news-card'>
+                        <img src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000' referrerpolicy='no-referrer' loading='lazy' onerror="this.src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000'">
+                        <div class='text-content'>
+                            <a href='https://news.day.az/politics/1825003.html' target='_blank'>МИД Азербайджана распространило заявление в связи с 31 марта - Днем геноцида азербайджанцев</a>
+                            <span class='source-tag'>[Day.az]</span>
+                        </div>
+                    </li>
+                    <li class='news-card'>
+                        <img src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000' referrerpolicy='no-referrer' loading='lazy' onerror="this.src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000'">
+                        <div class='text-content'>
+                            <a href='https://news.day.az/politics/1824979.html' target='_blank'>Главы МИД Азербайджана и Ирана провели телефонный разговор</a>
+                            <span class='source-tag'>[Day.az]</span>
+                        </div>
+                    </li>
+                    <li class='news-card'>
+                        <img src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000' referrerpolicy='no-referrer' loading='lazy' onerror="this.src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000'">
+                        <div class='text-content'>
+                            <a href='https://news.day.az/economy/1825177.html' target='_blank'>Фискальная политика Азербайджана сохраняет стимулы для экономического роста  - ING Group</a>
+                            <span class='source-tag'>[Day.az]</span>
+                        </div>
+                    </li>
+                    <li class='news-card'>
+                        <img src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000' referrerpolicy='no-referrer' loading='lazy' onerror="this.src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000'">
+                        <div class='text-content'>
+                            <a href='https://news.day.az/economy/1825176.html' target='_blank'>ING не видит возможности для дальнейшего смягчения монетарной политики Азербайджана</a>
+                            <span class='source-tag'>[Day.az]</span>
+                        </div>
+                    </li>
+                    <li class='news-card'>
+                        <img src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000' referrerpolicy='no-referrer' loading='lazy' onerror="this.src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000'">
+                        <div class='text-content'>
+                            <a href='https://news.day.az/economy/1825144.html' target='_blank'>Азербайджан обсудил сотрудничество с турецкой компанией</a>
+                            <span class='source-tag'>[Day.az]</span>
+                        </div>
+                    </li>
+                    <li class='news-card'>
+                        <img src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000' referrerpolicy='no-referrer' loading='lazy' onerror="this.src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000'">
+                        <div class='text-content'>
+                            <a href='https://news.day.az/economy/1825112.html' target='_blank'>В «Аляте» может появиться солнечная электростанция при участии китайского инвестора</a>
+                            <span class='source-tag'>[Day.az]</span>
+                        </div>
+                    </li>
+                    <li class='news-card'>
+                        <img src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000' referrerpolicy='no-referrer' loading='lazy' onerror="this.src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000'">
+                        <div class='text-content'>
+                            <a href='https://news.day.az/economy/1825104.html' target='_blank'>Азербайджан, Казахстан и Узбекистан обсудили реализацию проекта «Альянс зеленого коридора»</a>
+                            <span class='source-tag'>[Day.az]</span>
+                        </div>
+                    </li>
+                    <li class='news-card'>
+                        <img src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000' referrerpolicy='no-referrer' loading='lazy' onerror="this.src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000'">
+                        <div class='text-content'>
+                            <a href='https://news.day.az/society/1825188.html' target='_blank'>Грузовик столкнулся с легковушкой в Азербайджане, есть пострадавшие</a>
+                            <span class='source-tag'>[Day.az]</span>
+                        </div>
+                    </li>
+                    <li class='news-card'>
+                        <img src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000' referrerpolicy='no-referrer' loading='lazy' onerror="this.src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000'">
+                        <div class='text-content'>
+                            <a href='https://news.day.az/society/1825186.html' target='_blank'>В Азербайджане скончался известный поэт - ФОТО</a>
+                            <span class='source-tag'>[Day.az]</span>
+                        </div>
+                    </li>
+                    <li class='news-card'>
+                        <img src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000' referrerpolicy='no-referrer' loading='lazy' onerror="this.src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000'">
+                        <div class='text-content'>
+                            <a href='https://news.day.az/society/1825179.html' target='_blank'>В некоторых частях двух районов Баку не будет газа</a>
+                            <span class='source-tag'>[Day.az]</span>
+                        </div>
+                    </li>
+                    <li class='news-card'>
+                        <img src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000' referrerpolicy='no-referrer' loading='lazy' onerror="this.src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000'">
+                        <div class='text-content'>
+                            <a href='https://news.day.az/society/1825095.html' target='_blank'>Спрос падает, цены растут - как изменился рынок жилья в Азербайджане?</a>
+                            <span class='source-tag'>[Day.az]</span>
+                        </div>
+                    </li>
+                    <li class='news-card'>
+                        <img src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000' referrerpolicy='no-referrer' loading='lazy' onerror="this.src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000'">
+                        <div class='text-content'>
+                            <a href='https://news.day.az/society/1825032.html' target='_blank'>В дома без купчей могут разрешить проводить газ</a>
+                            <span class='source-tag'>[Day.az]</span>
+                        </div>
+                    </li>
+                    <li class='news-card'>
+                        <img src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000' referrerpolicy='no-referrer' loading='lazy' onerror="this.src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000'">
+                        <div class='text-content'>
+                            <a href='https://news.day.az/officialchronicle/1824926.html' target='_blank'>Президент Ильхам Алиев поделился публикацией в связи с Днем геноцида азербайджанцев - ФОТО</a>
+                            <span class='source-tag'>[Day.az]</span>
+                        </div>
+                    </li>
+                    <li class='news-card'>
+                        <img src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000' referrerpolicy='no-referrer' loading='lazy' onerror="this.src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000'">
+                        <div class='text-content'>
+                            <a href='https://news.day.az/officialchronicle/1824433.html' target='_blank'>Президент Ильхам Алиев посетил посольство Грузии в Азербайджане и выразил соболезнования - ФОТО - ВИДЕО</a>
+                            <span class='source-tag'>[Day.az]</span>
+                        </div>
+                    </li>
+                    <li class='news-card'>
+                        <img src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000' referrerpolicy='no-referrer' loading='lazy' onerror="this.src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000'">
+                        <div class='text-content'>
+                            <a href='https://news.day.az/officialchronicle/1824888.html' target='_blank'>Президент Ильхам Алиев и Первая леди Мехрибан Алиева отправили венок на церемонию прощания с народным артистом Расимом Балаевым - ФОТО</a>
+                            <span class='source-tag'>[Day.az]</span>
+                        </div>
+                    </li>
+                    <li class='news-card'>
+                        <img src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000' referrerpolicy='no-referrer' loading='lazy' onerror="this.src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000'">
+                        <div class='text-content'>
+                            <a href='https://news.day.az/politics/1824057.html' target='_blank'>Стратегия Президента Ильхама Алиева создает новые перспективы для Балкан - глава Брюссельского энергетического клуба для Day.Az</a>
+                            <span class='source-tag'>[Day.az]</span>
+                        </div>
+                    </li>
+                    <li class='news-card'>
+                        <img src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000' referrerpolicy='no-referrer' loading='lazy' onerror="this.src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000'">
+                        <div class='text-content'>
+                            <a href='https://news.day.az/world/1824549.html' target='_blank'>ООН приняла меры по Ормузскому проливу</a>
+                            <span class='source-tag'>[Day.az]</span>
+                        </div>
+                    </li><li class='news-card'>
                             <img src='https://images.unsplash.com/photo-1585007600263-ad12200a09a5?q=80&w=1000' alt='img'>
                             <div class='text-content'>
                                 <a href='https://qafqazinfo.az/news/detail/facievi-sekilde-olen-klub-prezidentinin-qardasi-14-gundur-itkin-dusub-503754' target='_blank'>Faciəvi şəkildə ölən klub prezidentinin qardaşı 14 gündür itkin düşüb</a>
@@ -173,7 +466,11 @@
                                 <a href='https://qafqazinfo.az/news/detail/bu-sexslerin-aile-uzvlerine-prezident-teqaudu-verilecek-503694' target='_blank'>Bu şəxslərin ailə üzvlərinə  - Prezident təqaüdü veriləcək</a>
                                 <span class='source'>[Qafqazinfo]</span>
                             </div>
-                        </li></ul></div>
-    <footer><p>Son Yenilənmə: 31.03.2026 20:07 | Cuppulu News</p></footer>
+                        </li>
+        </ul>
+    </div>
+    <footer>
+        <p>Yenilənmə: 31.03.2026 20:15 | Cuppulu</p>
+    </footer>
 </body>
 </html>
