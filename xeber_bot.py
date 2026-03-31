@@ -5,47 +5,46 @@ import os
 import re
 
 def xeberleri_getir():
-    # Saytlar və onların xüsusi axtarış yolları
+    # Şəkilləri bloklamayan və rahat çəkilən saytlar
     saytlar = [
-        {"ad": "Oxu.az", "url": "https://oxu.az", "item": "div.news-i", "img": "img", "link": "a.news-i-inner", "base": "https://oxu.az"},
-        {"ad": "Baku.ws", "url": "https://baku.ws", "item": "div.news-item", "img": "img", "link": "a", "base": ""},
-        {"ad": "Qafqazinfo", "url": "https://qafqazinfo.az", "item": "div.news-box", "img": "img", "link": "a", "base": ""}
+        {"ad": "Trend.az", "url": "https://az.trend.az", "base": "https://az.trend.az"},
+        {"ad": "Milli.az", "url": "https://www.milli.az", "base": ""},
+        {"ad": "Day.az", "url": "https://news.day.az", "base": ""}
     ]
     
     headers = {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36",
-        "Referer": "https://google.com"
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"
     }
     
     yeni_siyahi = []
+    # Şəkil tapılmayanda çıxacaq default şəkil
     default_img = "https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000"
 
     for sayt in saytlar:
         try:
-            response = requests.get(sayt["url"], headers=headers, timeout=20)
+            response = requests.get(sayt["url"], headers=headers, timeout=25)
             soup = BeautifulSoup(response.text, "html.parser")
             
-            # CSS selector ilə elementləri tapırıq
-            items = soup.select(sayt["item"])
+            # Xəbər bloklarını axtarırıq
+            items = soup.find_all(["div", "li"], class_=re.compile("news|item|post|article"))
             count = 0
             
             for item in items:
-                if count >= 25: break
+                if count >= 20: break
                 
-                link_tag = item.select_one(sayt["link"])
-                img_tag = item.select_one(sayt["img"])
+                link_tag = item.find("a")
+                img_tag = item.find("img")
                 
-                if link_tag and link_tag.get("href"):
-                    title = link_tag.text.strip() or "Xəbər başlığı"
-                    if len(title) < 15: continue # Çox qısa başlıqları atlayırıq
-                    
+                # Başlıq çox qısa olmasın (reklamları keçmək üçün)
+                if link_tag and link_tag.get("href") and len(link_tag.text.strip()) > 30:
+                    title = link_tag.text.strip()
                     href = link_tag.get("href")
                     if not href.startswith("http"): href = sayt["base"] + href
                     
-                    # Şəkil linkini dərindən axtarırıq (data-src, src və s.)
                     img_url = ""
                     if img_tag:
-                        img_url = img_tag.get("data-src") or img_tag.get("src") or img_tag.get("data-original")
+                        # Müxtəlif şəkil yollarını yoxlayırıq
+                        img_url = img_tag.get("src") or img_tag.get("data-src") or img_tag.get("data-original")
                     
                     if not img_url: img_url = default_img
                     if img_url.startswith("//"): img_url = "https:" + img_url
@@ -53,34 +52,31 @@ def xeberleri_getir():
 
                     yeni_siyahi.append(f"""
                     <li class='news-card'>
-                        <div class='img-box'>
-                            <img src='{img_url}' loading='lazy' onerror="this.src='{default_img}'">
-                        </div>
-                        <div class='text-box'>
-                            <span class='badge'>{sayt['ad']}</span>
+                        <img src='{img_url}' referrerpolicy='no-referrer' loading='lazy' onerror="this.src='{default_img}'">
+                        <div class='text-content'>
                             <a href='{href}' target='_blank'>{title}</a>
+                            <span class='source-tag'>[{sayt['ad']}]</span>
                         </div>
                     </li>""")
                     count += 1
-        except Exception as e:
-            print(f"Xəta {sayt['ad']}: {e}")
+        except:
             continue
             
     return yeni_siyahi
 
-# Fayl idarəetməsi
+# Köhnə xəbərləri oxu
 if os.path.exists("index.html"):
     with open("index.html", "r", encoding="utf-8") as f:
-        old_html = f.read()
-        kohne_xeberler = re.findall(r"<li class='news-card'>.*?</li>", old_html, re.DOTALL)
+        old_content = f.read()
+        kohne_xeberler = re.findall(r"<li class='news-card'>.*?</li>", old_content, re.DOTALL)
 else:
     kohne_xeberler = []
 
-yeni_xeberler = xeberleri_getir()
-butun_xeberler = yeni_xeberler + [x for x in kohne_xeberler if x not in yeni_xeberler]
-butun_xeberler = butun_xeberler[:120]
+yeni_gelenler = xeberleri_getir()
+butun_xeberler = yeni_gelenler + [x for x in kohne_xeberler if x not in yeni_gelenler]
+butun_xeberler = butun_xeberler[:100]
 
-# Dizayn (Ağ Fon və Baku News)
+# SCREENSHOT-DAKI DİZAYNIN TAM EYNİSİ
 indiki_vaxt = datetime.now().strftime("%d.%m.%Y %H:%M")
 html_final = f"""
 <!DOCTYPE html>
@@ -88,30 +84,41 @@ html_final = f"""
 <head>
     <meta charset='UTF-8'>
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-    <title>Baku News - Canlı</title>
+    <title>Baku News</title>
     <style>
-        body {{ font-family: 'Segoe UI', sans-serif; margin: 0; background: #fff; color: #1a1a1a; }}
-        header {{ padding: 40px 20px; text-align: center; border-bottom: 5px solid #000; }}
-        header h1 {{ font-size: 45px; margin: 0; text-transform: uppercase; font-weight: 900; }}
-        .container {{ max-width: 1200px; margin: 0 auto; padding: 30px; }}
-        ul {{ display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 30px; list-style: none; padding: 0; }}
-        .news-card {{ border: 1px solid #eee; transition: 0.3s; background: #fff; }}
-        .news-card:hover {{ box-shadow: 0 10px 20px rgba(0,0,0,0.1); transform: translateY(-5px); }}
-        .img-box {{ width: 100%; height: 210px; overflow: hidden; background: #f9f9f9; }}
-        .img-box img {{ width: 100%; height: 100%; object-fit: cover; }}
-        .text-box {{ padding: 20px; }}
-        .badge {{ background: #d32f2f; color: #fff; padding: 3px 8px; font-size: 11px; font-weight: bold; text-transform: uppercase; margin-bottom: 10px; display: inline-block; }}
-        .text-box a {{ text-decoration: none; color: #000; font-size: 19px; font-weight: 700; line-height: 1.3; display: block; }}
-        footer {{ text-align: center; padding: 40px; background: #f4f4f4; margin-top: 50px; font-size: 14px; color: #666; }}
+        body {{ font-family: 'Helvetica Neue', Arial, sans-serif; margin: 0; background: #ffffff; color: #333; }}
+        header {{ padding: 40px 20px; text-align: center; border-bottom: 2px solid #d32f2f; margin-bottom: 20px; }}
+        header h1 {{ margin: 0; font-size: 50px; font-weight: bold; color: #000; letter-spacing: 2px; }}
+        header p {{ color: #666; margin-top: 10px; }}
+        .container {{ max-width: 1200px; margin: 0 auto; padding: 20px; }}
+        ul {{ display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 20px; list-style: none; padding: 0; }}
+        .news-card {{ background: #fff; border: 1px solid #eee; border-radius: 8px; overflow: hidden; display: flex; flex-direction: column; transition: 0.2s; }}
+        .news-card:hover {{ box-shadow: 0 5px 15px rgba(0,0,0,0.05); }}
+        .news-card img {{ width: 100%; height: 180px; object-fit: cover; border-bottom: 1px solid #f9f9f9; }}
+        .text-content {{ padding: 15px; flex-grow: 1; }}
+        .text-content a {{ text-decoration: none; color: #1a1a1a; font-size: 18px; font-weight: 500; line-height: 1.4; display: block; margin-bottom: 10px; }}
+        .text-content a:hover {{ text-decoration: underline; }}
+        .source-tag {{ color: #d32f2f; font-size: 13px; font-weight: bold; text-transform: uppercase; }}
+        footer {{ text-align: center; padding: 30px; color: #999; font-size: 12px; margin-top: 40px; border-top: 1px solid #eee; }}
     </style>
 </head>
 <body>
-    <header><h1>BAKU NEWS</h1><p>Oxu.az • Baku.ws • Qafqazinfo</p></header>
-    <div class='container'><ul>{"".join(butun_xeberler)}</ul></div>
-    <footer><p>Son Yenilənmə: {indiki_vaxt} | Cuppulu News</p></footer>
+    <header>
+        <h1>BAKU NEWS</h1>
+        <p>Günün Ən Son Xəbərləri</p>
+    </header>
+    <div class='container'>
+        <ul>
+            {"".join(butun_xeberler)}
+        </ul>
+    </div>
+    <footer>
+        <p>Yenilənmə: {indiki_vaxt} | Cuppulu</p>
+    </footer>
 </body>
 </html>
 """
 
 with open("index.html", "w", encoding="utf-8") as f:
     f.write(html_final)
+    
