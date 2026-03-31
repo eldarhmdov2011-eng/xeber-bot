@@ -19,15 +19,12 @@ def xeberleri_getir():
         try:
             response = requests.get(sayt["url"], headers=headers, timeout=30)
             soup = BeautifulSoup(response.text, "html.parser")
-            
-            # Bütün mümkün xəbər linklərini və şəkillərini axtarırıq
             items = soup.find_all(["div", "li", "article"])
             count = 0
             
             for item in items:
                 link = item.find("a")
                 img = item.find("img")
-                
                 if link and link.get("href") and len(link.text.strip()) > 30:
                     title = link.text.strip()
                     href = link.get("href")
@@ -55,12 +52,7 @@ def xeberleri_getir():
             continue
     return yeni_siyahi
 
-# Əsas icra
 yeni_xeberler = xeberleri_getir()
-if not yeni_xeberler:
-    print("Xəbər tapılmadı!")
-    exit()
-
 indiki_vaxt = datetime.now().strftime("%d.%m.%Y %H:%M")
 html_final = f"""
 <!DOCTYPE html>
@@ -70,23 +62,26 @@ html_final = f"""
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
     <title>Baku News</title>
     <style>
-        body {{ font-family: Arial, sans-serif; margin: 0; background: #fff; }}
-        header {{ padding: 30px; text-align: center; border-bottom: 3px solid #d32f2f; }}
-        header h1 {{ font-size: 40px; margin: 0; }}
+        body {{ font-family: 'Helvetica Neue', Arial, sans-serif; margin: 0; background: #fff; }}
+        header {{ padding: 40px 20px; text-align: center; border-bottom: 2px solid #d32f2f; }}
+        header h1 {{ margin: 0; font-size: 50px; font-weight: bold; letter-spacing: 2px; }}
         .container {{ max-width: 1200px; margin: 20px auto; padding: 20px; }}
-        ul {{ display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; list-style: none; padding: 0; }}
-        .news-card {{ border: 1px solid #eee; border-radius: 8px; overflow: hidden; }}
+        ul {{ display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 20px; list-style: none; padding: 0; }}
+        .news-card {{ background: #fff; border: 1px solid #eee; border-radius: 8px; overflow: hidden; display: flex; flex-direction: column; }}
         .news-card img {{ width: 100%; height: 180px; object-fit: cover; }}
-        .text-content {{ padding: 15px; }}
-        .text-content a {{ text-decoration: none; color: #111; font-size: 17px; font-weight: bold; display: block; margin-bottom: 10px; }}
-        .source-tag {{ color: #d32f2f; font-size: 12px; font-weight: bold; }}
+        .text-content {{ padding: 15px; flex-grow: 1; }}
+        .text-content a {{ text-decoration: none; color: #1a1a1a; font-size: 18px; font-weight: 500; line-height: 1.4; display: block; margin-bottom: 10px; }}
+        .source-tag {{ color: #d32f2f; font-size: 13px; font-weight: bold; text-transform: uppercase; }}
+        footer {{ text-align: center; padding: 30px; color: #999; border-top: 1px solid #eee; }}
     </style>
 </head>
 <body>
-    <header><h1>BAKU NEWS</h1><p>Son Yenilənmə: {indiki_vaxt}</p></header>
+    <header><h1>BAKU NEWS</h1><p>Günün Ən Son Xəbərləri</p></header>
     <div class='container'><ul>{"".join(yeni_xeberler)}</ul></div>
+    <footer><p>Son Yenilənmə: {indiki_vaxt} | Cuppulu</p></footer>
 </body>
 </html>
 """
 
-with open("index.html", "w", encoding="
+with open("index.html", "w", encoding="utf-8") as f:
+    f.write(html_final)
