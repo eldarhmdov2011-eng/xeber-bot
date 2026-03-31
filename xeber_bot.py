@@ -5,119 +5,118 @@ import os
 import re
 
 def xeberleri_getir():
-    saytlar = {
-        "Oxu.az": "https://oxu.az",
-        "Qafqazinfo": "https://qafqazinfo.az",
-        "Report.az": "https://report.az"
+    # Saytlar və onların xüsusi axtarış ayarları
+    saytlar = [
+        {"ad": "Oxu.az", "url": "https://oxu.az", "class": "news-i"},
+        {"ad": "Report.az", "url": "https://report.az", "class": "news-block"},
+        {"ad": "Qafqazinfo", "url": "https://qafqazinfo.az", "class": "news-box"}
+    ]
+    
+    # Saytları aldatmaq üçün "İnsan" maskası (User-Agent)
+    headers = {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
     }
-    headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"}
+    
     yeni_siyahi = []
-    default_img = "https://via.placeholder.com/100x70?text=News"
+    default_img = "https://images.unsplash.com/photo-1585007600263-ad12200a09a5?q=80&w=1000"
 
-    for ad, url in saytlar.items():
+    for sayt in saytlar:
         try:
-            response = requests.get(url, headers=headers, timeout=15)
+            response = requests.get(sayt["url"], headers=headers, timeout=20)
+            if response.status_code != 200: continue
+            
             soup = BeautifulSoup(response.text, "html.parser")
             count = 0
             
-            if "oxu.az" in url:
+            # Oxu.az üçün xüsusi şəkil və başlıq çəkmə
+            if "oxu.az" in sayt["url"]:
                 items = soup.find_all("div", class_="news-i")
-                for item in items:
-                    link = item.find("a", class_="news-i-inner")
-                    title = item.find("div", class_="title")
+                for item in items[:30]:
+                    link_tag = item.find("a", class_="news-i-inner")
+                    title_tag = item.find("div", class_="title")
                     img_tag = item.find("img")
-                    img_url = img_tag.get("src") if img_tag else default_img
-                    if img_url and not img_url.startswith("http"):
-                        img_url = "https://oxu.az" + img_url
-
-                    if link and title and count < 30:
+                    
+                    if link_tag and title_tag:
+                        title = title_tag.text.strip()
+                        href = "https://oxu.az" + link_tag.get("href")
+                        img_url = img_tag.get("src") if img_tag else default_img
+                        if not img_url.startswith("http"): img_url = "https://oxu.az" + img_url
+                        
                         yeni_siyahi.append(f"""
-                        <li>
-                            <img src='{img_url}' alt='news'>
+                        <li class='news-card'>
+                            <img src='{img_url}' alt='img'>
                             <div class='text-content'>
-                                <small style='color:#d32f2f'>[{ad}]</small>
-                                <a href='https://oxu.az{link.get('href')}' target='_blank'>{title.text.strip()}</a>
+                                <a href='{href}' target='_blank'>{title}</a>
+                                <span class='source'>[{sayt['ad']}]</span>
                             </div>
-                        </li>
-                        """)
+                        </li>""")
                         count += 1
-            
-            else: # Digər saytlar üçün sadələşdirilmiş çəkim
+
+            # Digər saytlar üçün ümumi axtarış
+            else:
                 links = soup.find_all("a")
                 for l in links:
                     t = l.text.strip()
-                    if len(t) > 30 and count < 30:
+                    if len(t) > 40 and count < 25:
                         h = l.get('href')
-                        full_h = h if h.startswith("http") else url + h
+                        full_h = h if h.startswith("http") else sayt["url"] + h
                         yeni_siyahi.append(f"""
-                        <li>
-                            <img src='{default_img}' alt='news'>
+                        <li class='news-card'>
+                            <img src='{default_img}' alt='img'>
                             <div class='text-content'>
-                                <small style='color:#d32f2f'>[{ad}]</small>
                                 <a href='{full_h}' target='_blank'>{t}</a>
+                                <span class='source'>[{sayt['ad']}]</span>
                             </div>
-                        </li>
-                        """)
+                        </li>""")
                         count += 1
         except:
             continue
     return yeni_siyahi
 
-# 1. Köhnə xəbərləri oxu
-kohne_xeberler = []
+# Köhnə xəbərləri qoru və yeniləri üstə yığ
 if os.path.exists("index.html"):
     with open("index.html", "r", encoding="utf-8") as f:
-        content = f.read()
-        kohne_xeberler = re.findall(r"<li>.*?</li>", content, re.DOTALL)
+        old_content = f.read()
+        kohne_xeberler = re.findall(r"<li class='news-card'>.*?</li>", old_content, re.DOTALL)
+else:
+    kohne_xeberler = []
 
-# 2. Yeni xəbərləri çək və birləşdir
 yeni_gelenler = xeberleri_getir()
 butun_xeberler = yeni_gelenler + [x for x in kohne_xeberler if x not in yeni_gelenler]
-butun_xeberler = butun_xeberler[:150]
+butun_xeberler = butun_xeberler[:120] # Limit 120 xəbər
 
-# 3. Yeni Ağ Dizayn (BAKU NEWS)
+# Ağ Dizayn və Böyük Şəkillər (CSS)
 indiki_vaxt = datetime.now().strftime("%d.%m.%Y %H:%M")
-html_basliq = f"""
+html_final = f"""
 <!DOCTYPE html>
 <html lang='az'>
 <head>
     <meta charset='UTF-8'>
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-    <title>Baku News Portal</title>
+    <title>Baku News</title>
     <style>
-        body {{ font-family: 'Helvetica Neue', Arial, sans-serif; margin: 0; background: #ffffff; color: #333; }}
-        .header {{ background: #f8f9fa; padding: 20px; border-bottom: 3px solid #d32f2f; text-align: center; }}
-        h1 {{ margin: 0; color: #1a1a1a; letter-spacing: 2px; font-size: 32px; font-weight: bold; }}
-        .container {{ max-width: 800px; margin: 20px auto; padding: 0 15px; }}
-        ul {{ list-style: none; padding: 0; }}
-        li {{ display: flex; align-items: center; gap: 15px; padding: 15px 0; border-bottom: 1px solid #eee; }}
-        li:last-child {{ border-bottom: none; }}
-        li img {{ width: 100px; height: 70px; object-fit: cover; border-radius: 4px; background: #eee; }}
-        .text-content {{ flex: 1; }}
-        a {{ text-decoration: none; color: #1a1a1a; font-size: 17px; font-weight: 500; line-height: 1.4; }}
-        a:hover {{ color: #d32f2f; }}
-        .footer {{ text-align: center; padding: 30px; color: #888; font-size: 13px; background: #f8f9fa; margin-top: 20px; }}
+        body {{ font-family: 'Segoe UI', Arial, sans-serif; margin: 0; background: #f4f4f4; color: #222; }}
+        header {{ background: #fff; padding: 25px; text-align: center; border-bottom: 5px solid #d32f2f; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }}
+        h1 {{ margin: 0; font-size: 40px; color: #1a1a1a; letter-spacing: 2px; }}
+        .container {{ max-width: 1100px; margin: 30px auto; padding: 0 20px; }}
+        ul {{ display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; list-style: none; padding: 0; }}
+        .news-card {{ background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.08); transition: 0.3s; }}
+        .news-card:hover {{ transform: translateY(-8px); box-shadow: 0 12px 25px rgba(0,0,0,0.15); }}
+        .news-card img {{ width: 100%; height: 200px; object-fit: cover; border-bottom: 1px solid #eee; }}
+        .text-content {{ padding: 20px; }}
+        .text-content a {{ text-decoration: none; color: #111; font-size: 19px; font-weight: 600; line-height: 1.4; display: block; margin-bottom: 10px; }}
+        .text-content a:hover {{ color: #d32f2f; }}
+        .source {{ font-size: 13px; color: #d32f2f; font-weight: bold; text-transform: uppercase; }}
+        footer {{ text-align: center; padding: 40px; background: #fff; margin-top: 50px; border-top: 1px solid #ddd; color: #777; }}
     </style>
 </head>
 <body>
-    <div class='header'>
-        <h1>BAKU NEWS</h1>
-        <p style='margin:5px 0 0; color:#666;'>Günün ən vacib xəbərləri</p>
-    </div>
-    <div class='container'>
-        <ul>
-"""
-
-html_sonluq = f"""
-        </ul>
-    </div>
-    <div class='footer'>
-        <p>Avtomatik Yenilənmə: {indiki_vaxt}</p>
-    </div>
+    <header><h1>BAKU NEWS</h1><p>Günün Ən Son Xəbərləri</p></header>
+    <div class='container'><ul>{"".join(butun_xeberler)}</ul></div>
+    <footer><p>Son Yenilənmə: {indiki_vaxt} | Cuppulu tərəfindən</p></footer>
 </body>
 </html>
 """
 
-tam_html = html_basliq + "".join(butun_xeberler) + html_sonluq
 with open("index.html", "w", encoding="utf-8") as f:
-    f.write(tam_html)
+    f.write(html_final)
